@@ -1,0 +1,1435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="E_Project_2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="ans_ID" />
+          </Key>
+          <Property Name="ans_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="at_ID" Type="int" />
+          <Property Name="rec_ID" Type="int" />
+          <Property Name="ans_grades" Type="nvarchar" MaxLength="10" />
+          <Property Name="ans_pass" Type="bit" />
+          <Property Name="ans_details" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ap_evaluate">
+          <Key>
+            <PropertyRef Name="ev_ID" />
+          </Key>
+          <Property Name="ev_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ev_notes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="rec_ID" Type="int" />
+          <Property Name="app_ID" Type="int" />
+          <Property Name="ev_HIRED" Type="bit" />
+        </EntityType>
+        <EntityType Name="app_document">
+          <Key>
+            <PropertyRef Name="ad_ID" />
+          </Key>
+          <Property Name="ad_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="d_ID" Type="int" />
+          <Property Name="app_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="app_status">
+          <Key>
+            <PropertyRef Name="as_ID" />
+          </Key>
+          <Property Name="as_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="a_status" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="app_test">
+          <Key>
+            <PropertyRef Name="at_ID" />
+          </Key>
+          <Property Name="at_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="t_ID" Type="int" />
+          <Property Name="app_ID" Type="int" />
+          <Property Name="at_start" Type="datetime" />
+          <Property Name="at_end" Type="datetime" />
+        </EntityType>
+        <EntityType Name="applicant">
+          <Key>
+            <PropertyRef Name="ap_ID" />
+          </Key>
+          <Property Name="ap_ID" Type="int" Nullable="false" />
+          <Property Name="ap_FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ap_LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ap_email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ap_contact" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ap_Summary" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="application_">
+          <Key>
+            <PropertyRef Name="app_ID" />
+          </Key>
+          <Property Name="app_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="app_date" Type="datetime" Nullable="false" />
+          <Property Name="app_edu" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="app_experience" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Job_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="aps_change">
+          <Key>
+            <PropertyRef Name="apsc_ID" />
+          </Key>
+          <Property Name="apsc_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="apsc_date" Type="datetime" Nullable="false" />
+          <Property Name="as_ID" Type="int" />
+          <Property Name="app_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="document">
+          <Key>
+            <PropertyRef Name="d_ID" />
+          </Key>
+          <Property Name="d_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="d_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="d_document" Type="binary" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="interview">
+          <Key>
+            <PropertyRef Name="I_ID" />
+          </Key>
+          <Property Name="I_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="I_start_time" Type="datetime" Nullable="false" />
+          <Property Name="I_end_time" Type="datetime" Nullable="false" />
+          <Property Name="app_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="interview_note">
+          <Key>
+            <PropertyRef Name="inote_ID" />
+          </Key>
+          <Property Name="inote_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inote_notes" Type="nvarchar(max)" />
+          <Property Name="I_ID" Type="int" />
+          <Property Name="rec_ID" Type="int" />
+          <Property Name="inote_pass" Type="bit" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="Job_ID" />
+          </Key>
+          <Property Name="Job_ID" Type="int" Nullable="false" />
+          <Property Name="Job_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Job_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Job_description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Job_publish_date" Type="datetime" Nullable="false" />
+          <Property Name="Job_Vacancies" Type="int" Nullable="false" />
+          <Property Name="jc_Id" Type="int" />
+          <Property Name="jd_ID" Type="int" />
+          <Property Name="jo_ID" Type="int" />
+          <Property Name="p_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="job_category">
+          <Key>
+            <PropertyRef Name="jc_Id" />
+          </Key>
+          <Property Name="jc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jc_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="jc_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="jc_description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_department">
+          <Key>
+            <PropertyRef Name="jd_ID" />
+          </Key>
+          <Property Name="jd_ID" Type="int" Nullable="false" />
+          <Property Name="jd_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="jd_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="jd_description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_orgy">
+          <Key>
+            <PropertyRef Name="jo_ID" />
+          </Key>
+          <Property Name="jo_ID" Type="int" Nullable="false" />
+          <Property Name="jo_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="jo_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="jo_description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="process">
+          <Key>
+            <PropertyRef Name="p_ID" />
+          </Key>
+          <Property Name="p_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="p_description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="rec_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="process_step">
+          <Key>
+            <PropertyRef Name="ps_ID" />
+          </Key>
+          <Property Name="ps_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="s_ID" Type="int" />
+          <Property Name="p_ID" Type="int" />
+          <Property Name="ps_status" Type="varchar" MaxLength="1" />
+          <Property Name="ps_priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recruiter">
+          <Key>
+            <PropertyRef Name="rec_ID" />
+          </Key>
+          <Property Name="rec_ID" Type="int" Nullable="false" />
+          <Property Name="rec_firstname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="rec_lastname" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="reg_ID" />
+          </Key>
+          <Property Name="reg_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="U_username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="U_fullname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="U_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="U_password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="U_designation" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="step">
+          <Key>
+            <PropertyRef Name="s_ID" />
+          </Key>
+          <Property Name="s_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="s_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="s_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="t_ID" />
+          </Key>
+          <Property Name="t_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="t_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="t_duration" Type="nvarchar" MaxLength="50" />
+          <Property Name="t_max_score" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Answers__at_ID__6A30C649">
+          <End Role="app_test" Type="Self.app_test" Multiplicity="0..1" />
+          <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="app_test">
+              <PropertyRef Name="at_ID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="at_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Answers__rec_ID__6B24EA82">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ap_evalua__app_I__5FB337D6">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="ap_evaluate" Type="Self.ap_evaluate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="ap_evaluate">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ap_evalua__rec_I__5EBF139D">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="ap_evaluate" Type="Self.ap_evaluate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="ap_evaluate">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_docum__app_I__5AEE82B9">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="app_document" Type="Self.app_document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="app_document">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_docume__d_ID__59FA5E80">
+          <End Role="document" Type="Self.document" Multiplicity="0..1" />
+          <End Role="app_document" Type="Self.app_document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="document">
+              <PropertyRef Name="d_ID" />
+            </Principal>
+            <Dependent Role="app_document">
+              <PropertyRef Name="d_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_test__app_ID__6754599E">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="app_test" Type="Self.app_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="app_test">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_test__t_ID__66603565">
+          <End Role="test" Type="Self.test" Multiplicity="0..1" />
+          <End Role="app_test" Type="Self.app_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="t_ID" />
+            </Principal>
+            <Dependent Role="app_test">
+              <PropertyRef Name="t_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__applicati__Job_I__571DF1D5">
+          <End Role="job" Type="Self.job" Multiplicity="0..1" />
+          <End Role="application_" Type="Self.application_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job">
+              <PropertyRef Name="Job_ID" />
+            </Principal>
+            <Dependent Role="application_">
+              <PropertyRef Name="Job_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aps_chang__app_I__6383C8BA">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="aps_change" Type="Self.aps_change" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="aps_change">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aps_chang__as_ID__628FA481">
+          <End Role="app_status" Type="Self.app_status" Multiplicity="0..1" />
+          <End Role="aps_change" Type="Self.aps_change" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="app_status">
+              <PropertyRef Name="as_ID" />
+            </Principal>
+            <Dependent Role="aps_change">
+              <PropertyRef Name="as_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__interview___I_ID__70DDC3D8">
+          <End Role="interview" Type="Self.interview" Multiplicity="0..1" />
+          <End Role="interview_note" Type="Self.interview_note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="interview">
+              <PropertyRef Name="I_ID" />
+            </Principal>
+            <Dependent Role="interview_note">
+              <PropertyRef Name="I_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__interview__app_I__6E01572D">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="interview" Type="Self.interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="interview">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__interview__rec_I__71D1E811">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="interview_note" Type="Self.interview_note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="interview_note">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__jc_Id__5165187F">
+          <End Role="job_category" Type="Self.job_category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job_category">
+              <PropertyRef Name="jc_Id" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="jc_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__jd_ID__52593CB8">
+          <End Role="job_department" Type="Self.job_department" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job_department">
+              <PropertyRef Name="jd_ID" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="jd_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__jo_ID__534D60F1">
+          <End Role="job_orgy" Type="Self.job_orgy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job_orgy">
+              <PropertyRef Name="jo_ID" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="jo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__p_ID__5441852A">
+          <End Role="process" Type="Self.process" Multiplicity="0..1" />
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="p_ID" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="p_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__process__rec_ID__4AB81AF0">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="process" Type="Self.process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="process">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__process_st__p_ID__4E88ABD4">
+          <End Role="process" Type="Self.process" Multiplicity="0..1" />
+          <End Role="process_step" Type="Self.process_step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="p_ID" />
+            </Principal>
+            <Dependent Role="process_step">
+              <PropertyRef Name="p_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__process_st__s_ID__4D94879B">
+          <End Role="step" Type="Self.step" Multiplicity="0..1" />
+          <End Role="process_step" Type="Self.process_step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="step">
+              <PropertyRef Name="s_ID" />
+            </Principal>
+            <Dependent Role="process_step">
+              <PropertyRef Name="s_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="E_Project_2ModelStoreContainer">
+          <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ap_evaluate" EntityType="Self.ap_evaluate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="app_document" EntityType="Self.app_document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="app_status" EntityType="Self.app_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="app_test" EntityType="Self.app_test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="applicant" EntityType="Self.applicant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="application_" EntityType="Self.application_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aps_change" EntityType="Self.aps_change" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="document" EntityType="Self.document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="interview" EntityType="Self.interview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="interview_note" EntityType="Self.interview_note" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="job" EntityType="Self.job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="job_category" EntityType="Self.job_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="job_department" EntityType="Self.job_department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="job_orgy" EntityType="Self.job_orgy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="process" EntityType="Self.process" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="process_step" EntityType="Self.process_step" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recruiter" EntityType="Self.Recruiter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Register" EntityType="Self.Register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="step" EntityType="Self.step" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="test" EntityType="Self.test" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Answers__at_ID__6A30C649" Association="Self.FK__Answers__at_ID__6A30C649">
+            <End Role="app_test" EntitySet="app_test" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Answers__rec_ID__6B24EA82" Association="Self.FK__Answers__rec_ID__6B24EA82">
+            <End Role="Recruiter" EntitySet="Recruiter" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ap_evalua__app_I__5FB337D6" Association="Self.FK__ap_evalua__app_I__5FB337D6">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="ap_evaluate" EntitySet="ap_evaluate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ap_evalua__rec_I__5EBF139D" Association="Self.FK__ap_evalua__rec_I__5EBF139D">
+            <End Role="Recruiter" EntitySet="Recruiter" />
+            <End Role="ap_evaluate" EntitySet="ap_evaluate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_docum__app_I__5AEE82B9" Association="Self.FK__app_docum__app_I__5AEE82B9">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="app_document" EntitySet="app_document" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_docume__d_ID__59FA5E80" Association="Self.FK__app_docume__d_ID__59FA5E80">
+            <End Role="document" EntitySet="document" />
+            <End Role="app_document" EntitySet="app_document" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_test__app_ID__6754599E" Association="Self.FK__app_test__app_ID__6754599E">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="app_test" EntitySet="app_test" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_test__t_ID__66603565" Association="Self.FK__app_test__t_ID__66603565">
+            <End Role="test" EntitySet="test" />
+            <End Role="app_test" EntitySet="app_test" />
+          </AssociationSet>
+          <AssociationSet Name="FK__applicati__Job_I__571DF1D5" Association="Self.FK__applicati__Job_I__571DF1D5">
+            <End Role="job" EntitySet="job" />
+            <End Role="application_" EntitySet="application_" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aps_chang__app_I__6383C8BA" Association="Self.FK__aps_chang__app_I__6383C8BA">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="aps_change" EntitySet="aps_change" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aps_chang__as_ID__628FA481" Association="Self.FK__aps_chang__as_ID__628FA481">
+            <End Role="app_status" EntitySet="app_status" />
+            <End Role="aps_change" EntitySet="aps_change" />
+          </AssociationSet>
+          <AssociationSet Name="FK__interview___I_ID__70DDC3D8" Association="Self.FK__interview___I_ID__70DDC3D8">
+            <End Role="interview" EntitySet="interview" />
+            <End Role="interview_note" EntitySet="interview_note" />
+          </AssociationSet>
+          <AssociationSet Name="FK__interview__app_I__6E01572D" Association="Self.FK__interview__app_I__6E01572D">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="interview" EntitySet="interview" />
+          </AssociationSet>
+          <AssociationSet Name="FK__interview__rec_I__71D1E811" Association="Self.FK__interview__rec_I__71D1E811">
+            <End Role="Recruiter" EntitySet="Recruiter" />
+            <End Role="interview_note" EntitySet="interview_note" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__jc_Id__5165187F" Association="Self.FK__job__jc_Id__5165187F">
+            <End Role="job_category" EntitySet="job_category" />
+            <End Role="job" EntitySet="job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__jd_ID__52593CB8" Association="Self.FK__job__jd_ID__52593CB8">
+            <End Role="job_department" EntitySet="job_department" />
+            <End Role="job" EntitySet="job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__jo_ID__534D60F1" Association="Self.FK__job__jo_ID__534D60F1">
+            <End Role="job_orgy" EntitySet="job_orgy" />
+            <End Role="job" EntitySet="job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__p_ID__5441852A" Association="Self.FK__job__p_ID__5441852A">
+            <End Role="process" EntitySet="process" />
+            <End Role="job" EntitySet="job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__process__rec_ID__4AB81AF0" Association="Self.FK__process__rec_ID__4AB81AF0">
+            <End Role="Recruiter" EntitySet="Recruiter" />
+            <End Role="process" EntitySet="process" />
+          </AssociationSet>
+          <AssociationSet Name="FK__process_st__p_ID__4E88ABD4" Association="Self.FK__process_st__p_ID__4E88ABD4">
+            <End Role="process" EntitySet="process" />
+            <End Role="process_step" EntitySet="process_step" />
+          </AssociationSet>
+          <AssociationSet Name="FK__process_st__s_ID__4D94879B" Association="Self.FK__process_st__s_ID__4D94879B">
+            <End Role="step" EntitySet="step" />
+            <End Role="process_step" EntitySet="process_step" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="E_Project_2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="ans_ID" />
+          </Key>
+          <Property Name="ans_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="at_ID" Type="Int32" />
+          <Property Name="rec_ID" Type="Int32" />
+          <Property Name="ans_grades" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ans_pass" Type="Boolean" />
+          <Property Name="ans_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="app_test" Relationship="Self.FK__Answers__at_ID__6A30C649" FromRole="Answers" ToRole="app_test" />
+          <NavigationProperty Name="Recruiter" Relationship="Self.FK__Answers__rec_ID__6B24EA82" FromRole="Answers" ToRole="Recruiter" />
+        </EntityType>
+        <EntityType Name="ap_evaluate">
+          <Key>
+            <PropertyRef Name="ev_ID" />
+          </Key>
+          <Property Name="ev_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ev_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rec_ID" Type="Int32" />
+          <Property Name="app_ID" Type="Int32" />
+          <Property Name="ev_HIRED" Type="Boolean" />
+          <NavigationProperty Name="application_" Relationship="Self.FK__ap_evalua__app_I__5FB337D6" FromRole="ap_evaluate" ToRole="application_" />
+          <NavigationProperty Name="Recruiter" Relationship="Self.FK__ap_evalua__rec_I__5EBF139D" FromRole="ap_evaluate" ToRole="Recruiter" />
+        </EntityType>
+        <EntityType Name="app_document">
+          <Key>
+            <PropertyRef Name="ad_ID" />
+          </Key>
+          <Property Name="ad_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="d_ID" Type="Int32" />
+          <Property Name="app_ID" Type="Int32" />
+          <NavigationProperty Name="application_" Relationship="Self.FK__app_docum__app_I__5AEE82B9" FromRole="app_document" ToRole="application_" />
+          <NavigationProperty Name="document" Relationship="Self.FK__app_docume__d_ID__59FA5E80" FromRole="app_document" ToRole="document" />
+        </EntityType>
+        <EntityType Name="app_status">
+          <Key>
+            <PropertyRef Name="as_ID" />
+          </Key>
+          <Property Name="as_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="a_status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="aps_change" Relationship="Self.FK__aps_chang__as_ID__628FA481" FromRole="app_status" ToRole="aps_change" />
+        </EntityType>
+        <EntityType Name="app_test">
+          <Key>
+            <PropertyRef Name="at_ID" />
+          </Key>
+          <Property Name="at_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="t_ID" Type="Int32" />
+          <Property Name="app_ID" Type="Int32" />
+          <Property Name="at_start" Type="DateTime" Precision="3" />
+          <Property Name="at_end" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__at_ID__6A30C649" FromRole="app_test" ToRole="Answers" />
+          <NavigationProperty Name="application_" Relationship="Self.FK__app_test__app_ID__6754599E" FromRole="app_test" ToRole="application_" />
+          <NavigationProperty Name="test" Relationship="Self.FK__app_test__t_ID__66603565" FromRole="app_test" ToRole="test" />
+        </EntityType>
+        <EntityType Name="applicant">
+          <Key>
+            <PropertyRef Name="ap_ID" />
+          </Key>
+          <Property Name="ap_ID" Type="Int32" Nullable="false" />
+          <Property Name="ap_FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ap_LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ap_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ap_contact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ap_Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="application_">
+          <Key>
+            <PropertyRef Name="app_ID" />
+          </Key>
+          <Property Name="app_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="app_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="app_edu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="app_experience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Job_ID" Type="Int32" />
+          <NavigationProperty Name="ap_evaluate" Relationship="Self.FK__ap_evalua__app_I__5FB337D6" FromRole="application_" ToRole="ap_evaluate" />
+          <NavigationProperty Name="app_document" Relationship="Self.FK__app_docum__app_I__5AEE82B9" FromRole="application_" ToRole="app_document" />
+          <NavigationProperty Name="app_test" Relationship="Self.FK__app_test__app_ID__6754599E" FromRole="application_" ToRole="app_test" />
+          <NavigationProperty Name="job" Relationship="Self.FK__applicati__Job_I__571DF1D5" FromRole="application_" ToRole="job" />
+          <NavigationProperty Name="aps_change" Relationship="Self.FK__aps_chang__app_I__6383C8BA" FromRole="application_" ToRole="aps_change" />
+          <NavigationProperty Name="interviews" Relationship="Self.FK__interview__app_I__6E01572D" FromRole="application_" ToRole="interview" />
+        </EntityType>
+        <EntityType Name="aps_change">
+          <Key>
+            <PropertyRef Name="apsc_ID" />
+          </Key>
+          <Property Name="apsc_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apsc_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="as_ID" Type="Int32" />
+          <Property Name="app_ID" Type="Int32" />
+          <NavigationProperty Name="app_status" Relationship="Self.FK__aps_chang__as_ID__628FA481" FromRole="aps_change" ToRole="app_status" />
+          <NavigationProperty Name="application_" Relationship="Self.FK__aps_chang__app_I__6383C8BA" FromRole="aps_change" ToRole="application_" />
+        </EntityType>
+        <EntityType Name="document">
+          <Key>
+            <PropertyRef Name="d_ID" />
+          </Key>
+          <Property Name="d_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="d_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="d_document" Type="Binary" MaxLength="1000" FixedLength="true" Nullable="false" />
+          <NavigationProperty Name="app_document" Relationship="Self.FK__app_docume__d_ID__59FA5E80" FromRole="document" ToRole="app_document" />
+        </EntityType>
+        <EntityType Name="interview">
+          <Key>
+            <PropertyRef Name="I_ID" />
+          </Key>
+          <Property Name="I_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="I_start_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="I_end_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="app_ID" Type="Int32" />
+          <NavigationProperty Name="application_" Relationship="Self.FK__interview__app_I__6E01572D" FromRole="interview" ToRole="application_" />
+          <NavigationProperty Name="interview_note" Relationship="Self.FK__interview___I_ID__70DDC3D8" FromRole="interview" ToRole="interview_note" />
+        </EntityType>
+        <EntityType Name="interview_note">
+          <Key>
+            <PropertyRef Name="inote_ID" />
+          </Key>
+          <Property Name="inote_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inote_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="I_ID" Type="Int32" />
+          <Property Name="rec_ID" Type="Int32" />
+          <Property Name="inote_pass" Type="Boolean" />
+          <NavigationProperty Name="interview" Relationship="Self.FK__interview___I_ID__70DDC3D8" FromRole="interview_note" ToRole="interview" />
+          <NavigationProperty Name="Recruiter" Relationship="Self.FK__interview__rec_I__71D1E811" FromRole="interview_note" ToRole="Recruiter" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="Job_ID" />
+          </Key>
+          <Property Name="Job_ID" Type="Int32" Nullable="false" />
+          <Property Name="Job_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Job_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Job_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Job_publish_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Job_Vacancies" Type="Int32" Nullable="false" />
+          <Property Name="jc_Id" Type="Int32" />
+          <Property Name="jd_ID" Type="Int32" />
+          <Property Name="jo_ID" Type="Int32" />
+          <Property Name="p_ID" Type="Int32" />
+          <NavigationProperty Name="application_" Relationship="Self.FK__applicati__Job_I__571DF1D5" FromRole="job" ToRole="application_" />
+          <NavigationProperty Name="job_category" Relationship="Self.FK__job__jc_Id__5165187F" FromRole="job" ToRole="job_category" />
+          <NavigationProperty Name="job_department" Relationship="Self.FK__job__jd_ID__52593CB8" FromRole="job" ToRole="job_department" />
+          <NavigationProperty Name="job_orgy" Relationship="Self.FK__job__jo_ID__534D60F1" FromRole="job" ToRole="job_orgy" />
+          <NavigationProperty Name="process" Relationship="Self.FK__job__p_ID__5441852A" FromRole="job" ToRole="process" />
+        </EntityType>
+        <EntityType Name="job_category">
+          <Key>
+            <PropertyRef Name="jc_Id" />
+          </Key>
+          <Property Name="jc_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jc_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jc_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jc_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="jobs" Relationship="Self.FK__job__jc_Id__5165187F" FromRole="job_category" ToRole="job" />
+        </EntityType>
+        <EntityType Name="job_department">
+          <Key>
+            <PropertyRef Name="jd_ID" />
+          </Key>
+          <Property Name="jd_ID" Type="Int32" Nullable="false" />
+          <Property Name="jd_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jd_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jd_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="jobs" Relationship="Self.FK__job__jd_ID__52593CB8" FromRole="job_department" ToRole="job" />
+        </EntityType>
+        <EntityType Name="job_orgy">
+          <Key>
+            <PropertyRef Name="jo_ID" />
+          </Key>
+          <Property Name="jo_ID" Type="Int32" Nullable="false" />
+          <Property Name="jo_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jo_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jo_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="jobs" Relationship="Self.FK__job__jo_ID__534D60F1" FromRole="job_orgy" ToRole="job" />
+        </EntityType>
+        <EntityType Name="process">
+          <Key>
+            <PropertyRef Name="p_ID" />
+          </Key>
+          <Property Name="p_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="p_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rec_ID" Type="Int32" />
+          <NavigationProperty Name="jobs" Relationship="Self.FK__job__p_ID__5441852A" FromRole="process" ToRole="job" />
+          <NavigationProperty Name="Recruiter" Relationship="Self.FK__process__rec_ID__4AB81AF0" FromRole="process" ToRole="Recruiter" />
+          <NavigationProperty Name="process_step" Relationship="Self.FK__process_st__p_ID__4E88ABD4" FromRole="process" ToRole="process_step" />
+        </EntityType>
+        <EntityType Name="process_step">
+          <Key>
+            <PropertyRef Name="ps_ID" />
+          </Key>
+          <Property Name="ps_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="s_ID" Type="Int32" />
+          <Property Name="p_ID" Type="Int32" />
+          <Property Name="ps_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ps_priority" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="process" Relationship="Self.FK__process_st__p_ID__4E88ABD4" FromRole="process_step" ToRole="process" />
+          <NavigationProperty Name="step" Relationship="Self.FK__process_st__s_ID__4D94879B" FromRole="process_step" ToRole="step" />
+        </EntityType>
+        <EntityType Name="Recruiter">
+          <Key>
+            <PropertyRef Name="rec_ID" />
+          </Key>
+          <Property Name="rec_ID" Type="Int32" Nullable="false" />
+          <Property Name="rec_firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rec_lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__rec_ID__6B24EA82" FromRole="Recruiter" ToRole="Answers" />
+          <NavigationProperty Name="ap_evaluate" Relationship="Self.FK__ap_evalua__rec_I__5EBF139D" FromRole="Recruiter" ToRole="ap_evaluate" />
+          <NavigationProperty Name="interview_note" Relationship="Self.FK__interview__rec_I__71D1E811" FromRole="Recruiter" ToRole="interview_note" />
+          <NavigationProperty Name="processes" Relationship="Self.FK__process__rec_ID__4AB81AF0" FromRole="Recruiter" ToRole="process" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="reg_ID" />
+          </Key>
+          <Property Name="reg_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="U_username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="U_fullname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="U_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="U_password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="U_designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="step">
+          <Key>
+            <PropertyRef Name="s_ID" />
+          </Key>
+          <Property Name="s_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="s_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="s_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="process_step" Relationship="Self.FK__process_st__s_ID__4D94879B" FromRole="step" ToRole="process_step" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="t_ID" />
+          </Key>
+          <Property Name="t_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="t_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="t_duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="t_max_score" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="app_test" Relationship="Self.FK__app_test__t_ID__66603565" FromRole="test" ToRole="app_test" />
+        </EntityType>
+        <Association Name="FK__Answers__at_ID__6A30C649">
+          <End Role="app_test" Type="Self.app_test" Multiplicity="0..1" />
+          <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="app_test">
+              <PropertyRef Name="at_ID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="at_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Answers__rec_ID__6B24EA82">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ap_evalua__app_I__5FB337D6">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="ap_evaluate" Type="Self.ap_evaluate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="ap_evaluate">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ap_evalua__rec_I__5EBF139D">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="ap_evaluate" Type="Self.ap_evaluate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="ap_evaluate">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_docum__app_I__5AEE82B9">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="app_document" Type="Self.app_document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="app_document">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_docume__d_ID__59FA5E80">
+          <End Role="document" Type="Self.document" Multiplicity="0..1" />
+          <End Role="app_document" Type="Self.app_document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="document">
+              <PropertyRef Name="d_ID" />
+            </Principal>
+            <Dependent Role="app_document">
+              <PropertyRef Name="d_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aps_chang__as_ID__628FA481">
+          <End Role="app_status" Type="Self.app_status" Multiplicity="0..1" />
+          <End Role="aps_change" Type="Self.aps_change" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="app_status">
+              <PropertyRef Name="as_ID" />
+            </Principal>
+            <Dependent Role="aps_change">
+              <PropertyRef Name="as_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_test__app_ID__6754599E">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="app_test" Type="Self.app_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="app_test">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__app_test__t_ID__66603565">
+          <End Role="test" Type="Self.test" Multiplicity="0..1" />
+          <End Role="app_test" Type="Self.app_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="t_ID" />
+            </Principal>
+            <Dependent Role="app_test">
+              <PropertyRef Name="t_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__applicati__Job_I__571DF1D5">
+          <End Role="job" Type="Self.job" Multiplicity="0..1" />
+          <End Role="application_" Type="Self.application_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job">
+              <PropertyRef Name="Job_ID" />
+            </Principal>
+            <Dependent Role="application_">
+              <PropertyRef Name="Job_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aps_chang__app_I__6383C8BA">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="aps_change" Type="Self.aps_change" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="aps_change">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__interview__app_I__6E01572D">
+          <End Role="application_" Type="Self.application_" Multiplicity="0..1" />
+          <End Role="interview" Type="Self.interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_">
+              <PropertyRef Name="app_ID" />
+            </Principal>
+            <Dependent Role="interview">
+              <PropertyRef Name="app_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__interview___I_ID__70DDC3D8">
+          <End Role="interview" Type="Self.interview" Multiplicity="0..1" />
+          <End Role="interview_note" Type="Self.interview_note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="interview">
+              <PropertyRef Name="I_ID" />
+            </Principal>
+            <Dependent Role="interview_note">
+              <PropertyRef Name="I_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__interview__rec_I__71D1E811">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="interview_note" Type="Self.interview_note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="interview_note">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__jc_Id__5165187F">
+          <End Role="job_category" Type="Self.job_category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job_category">
+              <PropertyRef Name="jc_Id" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="jc_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__jd_ID__52593CB8">
+          <End Role="job_department" Type="Self.job_department" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job_department">
+              <PropertyRef Name="jd_ID" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="jd_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__jo_ID__534D60F1">
+          <End Role="job_orgy" Type="Self.job_orgy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job_orgy">
+              <PropertyRef Name="jo_ID" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="jo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__job__p_ID__5441852A">
+          <End Role="process" Type="Self.process" Multiplicity="0..1" />
+          <End Role="job" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="p_ID" />
+            </Principal>
+            <Dependent Role="job">
+              <PropertyRef Name="p_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__process__rec_ID__4AB81AF0">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="0..1" />
+          <End Role="process" Type="Self.process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="rec_ID" />
+            </Principal>
+            <Dependent Role="process">
+              <PropertyRef Name="rec_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__process_st__p_ID__4E88ABD4">
+          <End Role="process" Type="Self.process" Multiplicity="0..1" />
+          <End Role="process_step" Type="Self.process_step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="p_ID" />
+            </Principal>
+            <Dependent Role="process_step">
+              <PropertyRef Name="p_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__process_st__s_ID__4D94879B">
+          <End Role="step" Type="Self.step" Multiplicity="0..1" />
+          <End Role="process_step" Type="Self.process_step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="step">
+              <PropertyRef Name="s_ID" />
+            </Principal>
+            <Dependent Role="process_step">
+              <PropertyRef Name="s_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="E_Project_2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Answers" EntityType="Self.Answer" />
+          <EntitySet Name="ap_evaluate" EntityType="Self.ap_evaluate" />
+          <EntitySet Name="app_document" EntityType="Self.app_document" />
+          <EntitySet Name="app_status" EntityType="Self.app_status" />
+          <EntitySet Name="app_test" EntityType="Self.app_test" />
+          <EntitySet Name="applicants" EntityType="Self.applicant" />
+          <EntitySet Name="application_" EntityType="Self.application_" />
+          <EntitySet Name="aps_change" EntityType="Self.aps_change" />
+          <EntitySet Name="documents" EntityType="Self.document" />
+          <EntitySet Name="interviews" EntityType="Self.interview" />
+          <EntitySet Name="interview_note" EntityType="Self.interview_note" />
+          <EntitySet Name="jobs" EntityType="Self.job" />
+          <EntitySet Name="job_category" EntityType="Self.job_category" />
+          <EntitySet Name="job_department" EntityType="Self.job_department" />
+          <EntitySet Name="job_orgy" EntityType="Self.job_orgy" />
+          <EntitySet Name="processes" EntityType="Self.process" />
+          <EntitySet Name="process_step" EntityType="Self.process_step" />
+          <EntitySet Name="Recruiters" EntityType="Self.Recruiter" />
+          <EntitySet Name="Registers" EntityType="Self.Register" />
+          <EntitySet Name="steps" EntityType="Self.step" />
+          <EntitySet Name="tests" EntityType="Self.test" />
+          <AssociationSet Name="FK__Answers__at_ID__6A30C649" Association="Self.FK__Answers__at_ID__6A30C649">
+            <End Role="app_test" EntitySet="app_test" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Answers__rec_ID__6B24EA82" Association="Self.FK__Answers__rec_ID__6B24EA82">
+            <End Role="Recruiter" EntitySet="Recruiters" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ap_evalua__app_I__5FB337D6" Association="Self.FK__ap_evalua__app_I__5FB337D6">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="ap_evaluate" EntitySet="ap_evaluate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ap_evalua__rec_I__5EBF139D" Association="Self.FK__ap_evalua__rec_I__5EBF139D">
+            <End Role="Recruiter" EntitySet="Recruiters" />
+            <End Role="ap_evaluate" EntitySet="ap_evaluate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_docum__app_I__5AEE82B9" Association="Self.FK__app_docum__app_I__5AEE82B9">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="app_document" EntitySet="app_document" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_docume__d_ID__59FA5E80" Association="Self.FK__app_docume__d_ID__59FA5E80">
+            <End Role="document" EntitySet="documents" />
+            <End Role="app_document" EntitySet="app_document" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aps_chang__as_ID__628FA481" Association="Self.FK__aps_chang__as_ID__628FA481">
+            <End Role="app_status" EntitySet="app_status" />
+            <End Role="aps_change" EntitySet="aps_change" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_test__app_ID__6754599E" Association="Self.FK__app_test__app_ID__6754599E">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="app_test" EntitySet="app_test" />
+          </AssociationSet>
+          <AssociationSet Name="FK__app_test__t_ID__66603565" Association="Self.FK__app_test__t_ID__66603565">
+            <End Role="test" EntitySet="tests" />
+            <End Role="app_test" EntitySet="app_test" />
+          </AssociationSet>
+          <AssociationSet Name="FK__applicati__Job_I__571DF1D5" Association="Self.FK__applicati__Job_I__571DF1D5">
+            <End Role="job" EntitySet="jobs" />
+            <End Role="application_" EntitySet="application_" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aps_chang__app_I__6383C8BA" Association="Self.FK__aps_chang__app_I__6383C8BA">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="aps_change" EntitySet="aps_change" />
+          </AssociationSet>
+          <AssociationSet Name="FK__interview__app_I__6E01572D" Association="Self.FK__interview__app_I__6E01572D">
+            <End Role="application_" EntitySet="application_" />
+            <End Role="interview" EntitySet="interviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__interview___I_ID__70DDC3D8" Association="Self.FK__interview___I_ID__70DDC3D8">
+            <End Role="interview" EntitySet="interviews" />
+            <End Role="interview_note" EntitySet="interview_note" />
+          </AssociationSet>
+          <AssociationSet Name="FK__interview__rec_I__71D1E811" Association="Self.FK__interview__rec_I__71D1E811">
+            <End Role="Recruiter" EntitySet="Recruiters" />
+            <End Role="interview_note" EntitySet="interview_note" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__jc_Id__5165187F" Association="Self.FK__job__jc_Id__5165187F">
+            <End Role="job_category" EntitySet="job_category" />
+            <End Role="job" EntitySet="jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__jd_ID__52593CB8" Association="Self.FK__job__jd_ID__52593CB8">
+            <End Role="job_department" EntitySet="job_department" />
+            <End Role="job" EntitySet="jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__jo_ID__534D60F1" Association="Self.FK__job__jo_ID__534D60F1">
+            <End Role="job_orgy" EntitySet="job_orgy" />
+            <End Role="job" EntitySet="jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__job__p_ID__5441852A" Association="Self.FK__job__p_ID__5441852A">
+            <End Role="process" EntitySet="processes" />
+            <End Role="job" EntitySet="jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__process__rec_ID__4AB81AF0" Association="Self.FK__process__rec_ID__4AB81AF0">
+            <End Role="Recruiter" EntitySet="Recruiters" />
+            <End Role="process" EntitySet="processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__process_st__p_ID__4E88ABD4" Association="Self.FK__process_st__p_ID__4E88ABD4">
+            <End Role="process" EntitySet="processes" />
+            <End Role="process_step" EntitySet="process_step" />
+          </AssociationSet>
+          <AssociationSet Name="FK__process_st__s_ID__4D94879B" Association="Self.FK__process_st__s_ID__4D94879B">
+            <End Role="step" EntitySet="steps" />
+            <End Role="process_step" EntitySet="process_step" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="E_Project_2ModelStoreContainer" CdmEntityContainer="E_Project_2Entities">
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="E_Project_2Model.Answer">
+              <MappingFragment StoreEntitySet="Answers">
+                <ScalarProperty Name="ans_ID" ColumnName="ans_ID" />
+                <ScalarProperty Name="at_ID" ColumnName="at_ID" />
+                <ScalarProperty Name="rec_ID" ColumnName="rec_ID" />
+                <ScalarProperty Name="ans_grades" ColumnName="ans_grades" />
+                <ScalarProperty Name="ans_pass" ColumnName="ans_pass" />
+                <ScalarProperty Name="ans_details" ColumnName="ans_details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ap_evaluate">
+            <EntityTypeMapping TypeName="E_Project_2Model.ap_evaluate">
+              <MappingFragment StoreEntitySet="ap_evaluate">
+                <ScalarProperty Name="ev_ID" ColumnName="ev_ID" />
+                <ScalarProperty Name="ev_notes" ColumnName="ev_notes" />
+                <ScalarProperty Name="rec_ID" ColumnName="rec_ID" />
+                <ScalarProperty Name="app_ID" ColumnName="app_ID" />
+                <ScalarProperty Name="ev_HIRED" ColumnName="ev_HIRED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="app_document">
+            <EntityTypeMapping TypeName="E_Project_2Model.app_document">
+              <MappingFragment StoreEntitySet="app_document">
+                <ScalarProperty Name="ad_ID" ColumnName="ad_ID" />
+                <ScalarProperty Name="d_ID" ColumnName="d_ID" />
+                <ScalarProperty Name="app_ID" ColumnName="app_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="app_status">
+            <EntityTypeMapping TypeName="E_Project_2Model.app_status">
+              <MappingFragment StoreEntitySet="app_status">
+                <ScalarProperty Name="as_ID" ColumnName="as_ID" />
+                <ScalarProperty Name="a_status" ColumnName="a_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="app_test">
+            <EntityTypeMapping TypeName="E_Project_2Model.app_test">
+              <MappingFragment StoreEntitySet="app_test">
+                <ScalarProperty Name="at_ID" ColumnName="at_ID" />
+                <ScalarProperty Name="t_ID" ColumnName="t_ID" />
+                <ScalarProperty Name="app_ID" ColumnName="app_ID" />
+                <ScalarProperty Name="at_start" ColumnName="at_start" />
+                <ScalarProperty Name="at_end" ColumnName="at_end" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="applicants">
+            <EntityTypeMapping TypeName="E_Project_2Model.applicant">
+              <MappingFragment StoreEntitySet="applicant">
+                <ScalarProperty Name="ap_ID" ColumnName="ap_ID" />
+                <ScalarProperty Name="ap_FirstName" ColumnName="ap_FirstName" />
+                <ScalarProperty Name="ap_LastName" ColumnName="ap_LastName" />
+                <ScalarProperty Name="ap_email" ColumnName="ap_email" />
+                <ScalarProperty Name="ap_contact" ColumnName="ap_contact" />
+                <ScalarProperty Name="ap_Summary" ColumnName="ap_Summary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="application_">
+            <EntityTypeMapping TypeName="E_Project_2Model.application_">
+              <MappingFragment StoreEntitySet="application_">
+                <ScalarProperty Name="app_ID" ColumnName="app_ID" />
+                <ScalarProperty Name="app_date" ColumnName="app_date" />
+                <ScalarProperty Name="app_edu" ColumnName="app_edu" />
+                <ScalarProperty Name="app_experience" ColumnName="app_experience" />
+                <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aps_change">
+            <EntityTypeMapping TypeName="E_Project_2Model.aps_change">
+              <MappingFragment StoreEntitySet="aps_change">
+                <ScalarProperty Name="apsc_ID" ColumnName="apsc_ID" />
+                <ScalarProperty Name="apsc_date" ColumnName="apsc_date" />
+                <ScalarProperty Name="as_ID" ColumnName="as_ID" />
+                <ScalarProperty Name="app_ID" ColumnName="app_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="documents">
+            <EntityTypeMapping TypeName="E_Project_2Model.document">
+              <MappingFragment StoreEntitySet="document">
+                <ScalarProperty Name="d_ID" ColumnName="d_ID" />
+                <ScalarProperty Name="d_name" ColumnName="d_name" />
+                <ScalarProperty Name="d_document" ColumnName="d_document" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="interviews">
+            <EntityTypeMapping TypeName="E_Project_2Model.interview">
+              <MappingFragment StoreEntitySet="interview">
+                <ScalarProperty Name="I_ID" ColumnName="I_ID" />
+                <ScalarProperty Name="I_start_time" ColumnName="I_start_time" />
+                <ScalarProperty Name="I_end_time" ColumnName="I_end_time" />
+                <ScalarProperty Name="app_ID" ColumnName="app_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="interview_note">
+            <EntityTypeMapping TypeName="E_Project_2Model.interview_note">
+              <MappingFragment StoreEntitySet="interview_note">
+                <ScalarProperty Name="inote_ID" ColumnName="inote_ID" />
+                <ScalarProperty Name="inote_notes" ColumnName="inote_notes" />
+                <ScalarProperty Name="I_ID" ColumnName="I_ID" />
+                <ScalarProperty Name="rec_ID" ColumnName="rec_ID" />
+                <ScalarProperty Name="inote_pass" ColumnName="inote_pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobs">
+            <EntityTypeMapping TypeName="E_Project_2Model.job">
+              <MappingFragment StoreEntitySet="job">
+                <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+                <ScalarProperty Name="Job_code" ColumnName="Job_code" />
+                <ScalarProperty Name="Job_Name" ColumnName="Job_Name" />
+                <ScalarProperty Name="Job_description" ColumnName="Job_description" />
+                <ScalarProperty Name="Job_publish_date" ColumnName="Job_publish_date" />
+                <ScalarProperty Name="Job_Vacancies" ColumnName="Job_Vacancies" />
+                <ScalarProperty Name="jc_Id" ColumnName="jc_Id" />
+                <ScalarProperty Name="jd_ID" ColumnName="jd_ID" />
+                <ScalarProperty Name="jo_ID" ColumnName="jo_ID" />
+                <ScalarProperty Name="p_ID" ColumnName="p_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="job_category">
+            <EntityTypeMapping TypeName="E_Project_2Model.job_category">
+              <MappingFragment StoreEntitySet="job_category">
+                <ScalarProperty Name="jc_Id" ColumnName="jc_Id" />
+                <ScalarProperty Name="jc_code" ColumnName="jc_code" />
+                <ScalarProperty Name="jc_name" ColumnName="jc_name" />
+                <ScalarProperty Name="jc_description" ColumnName="jc_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="job_department">
+            <EntityTypeMapping TypeName="E_Project_2Model.job_department">
+              <MappingFragment StoreEntitySet="job_department">
+                <ScalarProperty Name="jd_ID" ColumnName="jd_ID" />
+                <ScalarProperty Name="jd_code" ColumnName="jd_code" />
+                <ScalarProperty Name="jd_name" ColumnName="jd_name" />
+                <ScalarProperty Name="jd_description" ColumnName="jd_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="job_orgy">
+            <EntityTypeMapping TypeName="E_Project_2Model.job_orgy">
+              <MappingFragment StoreEntitySet="job_orgy">
+                <ScalarProperty Name="jo_ID" ColumnName="jo_ID" />
+                <ScalarProperty Name="jo_code" ColumnName="jo_code" />
+                <ScalarProperty Name="jo_name" ColumnName="jo_name" />
+                <ScalarProperty Name="jo_description" ColumnName="jo_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="processes">
+            <EntityTypeMapping TypeName="E_Project_2Model.process">
+              <MappingFragment StoreEntitySet="process">
+                <ScalarProperty Name="p_ID" ColumnName="p_ID" />
+                <ScalarProperty Name="p_code" ColumnName="p_code" />
+                <ScalarProperty Name="p_description" ColumnName="p_description" />
+                <ScalarProperty Name="rec_ID" ColumnName="rec_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="process_step">
+            <EntityTypeMapping TypeName="E_Project_2Model.process_step">
+              <MappingFragment StoreEntitySet="process_step">
+                <ScalarProperty Name="ps_ID" ColumnName="ps_ID" />
+                <ScalarProperty Name="s_ID" ColumnName="s_ID" />
+                <ScalarProperty Name="p_ID" ColumnName="p_ID" />
+                <ScalarProperty Name="ps_status" ColumnName="ps_status" />
+                <ScalarProperty Name="ps_priority" ColumnName="ps_priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recruiters">
+            <EntityTypeMapping TypeName="E_Project_2Model.Recruiter">
+              <MappingFragment StoreEntitySet="Recruiter">
+                <ScalarProperty Name="rec_ID" ColumnName="rec_ID" />
+                <ScalarProperty Name="rec_firstname" ColumnName="rec_firstname" />
+                <ScalarProperty Name="rec_lastname" ColumnName="rec_lastname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registers">
+            <EntityTypeMapping TypeName="E_Project_2Model.Register">
+              <MappingFragment StoreEntitySet="Register">
+                <ScalarProperty Name="reg_ID" ColumnName="reg_ID" />
+                <ScalarProperty Name="U_username" ColumnName="U_username" />
+                <ScalarProperty Name="U_fullname" ColumnName="U_fullname" />
+                <ScalarProperty Name="U_email" ColumnName="U_email" />
+                <ScalarProperty Name="U_password" ColumnName="U_password" />
+                <ScalarProperty Name="U_designation" ColumnName="U_designation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="steps">
+            <EntityTypeMapping TypeName="E_Project_2Model.step">
+              <MappingFragment StoreEntitySet="step">
+                <ScalarProperty Name="s_ID" ColumnName="s_ID" />
+                <ScalarProperty Name="s_code" ColumnName="s_code" />
+                <ScalarProperty Name="s_name" ColumnName="s_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tests">
+            <EntityTypeMapping TypeName="E_Project_2Model.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="t_ID" ColumnName="t_ID" />
+                <ScalarProperty Name="t_code" ColumnName="t_code" />
+                <ScalarProperty Name="t_duration" ColumnName="t_duration" />
+                <ScalarProperty Name="t_max_score" ColumnName="t_max_score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

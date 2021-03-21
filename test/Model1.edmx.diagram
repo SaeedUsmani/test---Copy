@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51aa02be22b640cfb876dc4b52358fc0" Name="Diagram1">
+        <EntityTypeShape EntityType="E_Project_2Model.Answer" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.ap_evaluate" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.app_document" Width="1.5" PointX="9.75" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.app_status" Width="1.5" PointX="8.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.app_test" Width="1.5" PointX="9.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.applicant" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.application_" Width="1.5" PointX="7.5" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.aps_change" Width="1.5" PointX="10.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.document" Width="1.5" PointX="7.5" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.interview" Width="1.5" PointX="9.75" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.interview_note" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.job" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.job_category" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.job_department" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.job_orgy" Width="1.5" PointX="3" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.process" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.process_step" Width="1.5" PointX="8.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.Recruiter" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.Register" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.step" Width="1.5" PointX="6" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Project_2Model.test" Width="1.5" PointX="7.5" PointY="30.5" IsExpanded="true" />
+        <AssociationConnector Association="E_Project_2Model.FK__Answers__at_ID__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__Answers__rec_ID__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__ap_evalua__app_I__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__ap_evalua__rec_I__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__app_docum__app_I__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__app_docume__d_ID__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__aps_chang__as_ID__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__app_test__app_ID__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__app_test__t_ID__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__applicati__Job_I__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__aps_chang__app_I__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__interview__app_I__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__interview___I_ID__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__interview__rec_I__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__job__jc_Id__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__job__jd_ID__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__job__jo_ID__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__job__p_ID__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__process__rec_ID__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__process_st__p_ID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Project_2Model.FK__process_st__s_ID__4D94879B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
